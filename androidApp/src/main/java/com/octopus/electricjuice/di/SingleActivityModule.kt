@@ -22,7 +22,7 @@ interface SingleActivityModule {
                 ActivityScopedModule::class
             ]
     )
-    fun androidPlaygroundActivity(): ElectricJuiceActivity
+    fun electricJuiceActivity(): ElectricJuiceActivity
 }
 
 @Module

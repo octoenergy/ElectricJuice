@@ -7,7 +7,7 @@ pluginManagement {
         maven { url = uri("https://kotlin.bintray.com/kotlinx") }
     }
 }
-rootProject.name = "EJArchitectureResearchPlayground"
+rootProject.name = "ElectricJuice"
 
 
 include(":shared")

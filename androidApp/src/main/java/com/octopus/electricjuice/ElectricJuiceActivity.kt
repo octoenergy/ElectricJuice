@@ -13,7 +13,7 @@ import androidx.ui.tooling.preview.Preview
 import com.octopus.electricjuice.common.ui.MotherAppCompatActivity
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.githubrepositories.MainViewModel
-import com.octopus.electricjuice.theme.EjPlaygroundTheme
+import com.octopus.electricjuice.theme.ElectricJuiceTheme
 import javax.inject.Inject
 
 class ElectricJuiceActivity : MotherAppCompatActivity() {
@@ -40,7 +40,7 @@ class ElectricJuiceActivity : MotherAppCompatActivity() {
 
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
-    EjPlaygroundTheme {
+    ElectricJuiceTheme {
         Surface(color = MaterialTheme.colors.background) {
             content()
         }
@@ -75,7 +75,7 @@ fun LoadingScreen(
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    EjPlaygroundTheme {
+    ElectricJuiceTheme {
         LoadingScreen({})
     }
 }
@@ -83,7 +83,7 @@ fun DefaultPreview() {
 @Preview(showBackground = false)
 @Composable
 fun AlternatePreview() {
-    EjPlaygroundTheme {
+    ElectricJuiceTheme {
         LoadingScreen({})
     }
 }

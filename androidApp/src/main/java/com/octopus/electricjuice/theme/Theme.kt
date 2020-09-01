@@ -28,7 +28,7 @@ onSurface = Color.Black,
 )
 
 @Composable
-fun EjPlaygroundTheme(
+fun ElectricJuiceTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {

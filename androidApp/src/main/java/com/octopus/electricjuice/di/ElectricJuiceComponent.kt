@@ -14,10 +14,10 @@ import dagger.android.support.AndroidSupportInjectionModule
         PlatformModule::class
     ]
 )
-interface AndroidPlaygroundComponent : AndroidInjector<App> {
+interface ElectricJuiceComponent : AndroidInjector<App> {
 
     @Component.Builder
     interface Builder {
-        fun build(): AndroidPlaygroundComponent
+        fun build(): ElectricJuiceComponent
     }
 }

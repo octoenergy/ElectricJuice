@@ -12,7 +12,7 @@ buildscript {
         classpath(Plugin.navigationArgs)
     }
 }
-group = "com.octopus.ejplayground"
+group = "com.octopus.electricjuice"
 version = "1.0-SNAPSHOT"
 
 allprojects {

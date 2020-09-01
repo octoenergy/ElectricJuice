@@ -6,6 +6,6 @@ import javax.inject.Inject
 class LoggerImpl @Inject constructor() : Logger {
 
     override fun log(message: String) {
-        Log.v("Playground", message)
+        Log.v("Electric Juice", message)
     }
 }
