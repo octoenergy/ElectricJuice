@@ -6,10 +6,7 @@ import com.octopus.electricjuice.common.threading.DispatcherProvider
 import com.octopus.electricjuice.common.threading.wrap
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 
 abstract class MotherViewModel<T : MotherViewModel.ViewState, S : MotherViewModel.UiAction>(
     private val dispatcherProvider: DispatcherProvider
@@ -61,7 +58,7 @@ abstract class MotherViewModel<T : MotherViewModel.ViewState, S : MotherViewMode
 
     fun viewStateStream(): Flow<T> {
         return viewStatePublisher.asFlow()
-            .filter { it != null } // Was getting null values down stream. No idea why as should never be able to happer
+            .onStart { defaultViewState() }
             .flowOn(dispatcherProvider.main)
     }
 }

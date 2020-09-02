@@ -18,7 +18,7 @@ class DetailsViewModel @MakeInjectable constructor(
         super.onAttach()
         val githubRepo = gitRepoRepository.githubRepo
         if (githubRepo == null) {
-            navigator.goToMain()
+//            navigator.goToMain()
         } else {
             emit(
                 lastViewState.copy(
@@ -31,7 +31,7 @@ class DetailsViewModel @MakeInjectable constructor(
 
     override fun onAction(action: UiAction) {
         when (action) {
-            UiAction.RepositoryClicked -> navigator.goToUrl(gitRepoRepository.githubRepo!!.url)
+            UiAction.RepositoryClicked -> {}
         }
     }
 

@@ -24,7 +24,7 @@ class MainViewModel @MakeInjectable constructor(
 
     override fun onAction(action: UiAction) {
         when (action) {
-            is UiAction.RepositoryClicked -> navigator.goToDetails(action.githubRepo)
+            is UiAction.RepositoryClicked -> { }
             is UiAction.LoadReposClicked -> loadResults()
         }
     }

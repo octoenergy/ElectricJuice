@@ -18,19 +18,26 @@ class NavigatorImpl @Inject constructor(
     private val electricJuiceActivity: ElectricJuiceActivity,
     private val currentRepoRepository: CurrentRepoRepository
 ): Navigator {
-
-    override fun goToDetails(githubRepo: GithubRepo) {
-        currentRepoRepository.githubRepo = githubRepo
-        val action = MainFragmentDirections.actionMainFragmentToDetailsFragment()
-        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
+    override fun goToMap() {
+        TODO("Not yet implemented")
     }
 
-    override fun goToMain() {
-        val action = DetailsFragmentDirections.actionDetailsFragmentToMainFragment()
-        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
+    override fun goToOnboarding() {
+        TODO("Not yet implemented")
     }
 
-    override fun goToUrl(url: String) {
-        Intent(Intent.ACTION_VIEW, Uri.parse(url)).startActivity(electricJuiceActivity)
-    }
+//    override fun goToDetails(githubRepo: GithubRepo) {
+//        currentRepoRepository.githubRepo = githubRepo
+//        val action = MainFragmentDirections.actionMainFragmentToDetailsFragment()
+//        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
+//    }
+//
+//    override fun goToMain() {
+//        val action = DetailsFragmentDirections.actionDetailsFragmentToMainFragment()
+//        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
+//    }
+//
+//    override fun goToUrl(url: String) {
+//        Intent(Intent.ACTION_VIEW, Uri.parse(url)).startActivity(electricJuiceActivity)
+//    }
 }
