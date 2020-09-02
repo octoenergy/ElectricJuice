@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">ElectricJuice</string>
-    <string name="onboarding_page_one_title">ElectricJuice</string>
-    <string name="onboarding_page_one_description">ElectricJuice</string>
-    <string name="onboarding_page_two_title">ElectricJuice</string>
-    <string name="onboarding_page_two_description">ElectricJuice</string>
-    <string name="onboarding_page_three_title">ElectricJuice</string>
-    <string name="onboarding_page_three_description">ElectricJuice</string>
+    <string name="onboarding_page_one_title">Welcome to Electric Juice!</string>
+    <string name="onboarding_page_one_description">Find, charge and pay in one place, with our ever-expanding network of charge points across the UK.</string>
+    <string name="onboarding_page_two_title">Charge with one tap</string>
+    <string name="onboarding_page_two_description">Start charging in a flash, with a single tap in the app or with your Electric Juice card.</string>
+    <string name="onboarding_page_three_title">Pay your way</string>
+    <string name="onboarding_page_three_description">Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.</string>
 
 
 
