@@ -4,15 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.ModalDrawerLayout
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
+import com.octopus.electricjuice.common.map
 import com.octopus.electricjuice.common.ui.MotherFragment
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
@@ -61,6 +66,10 @@ fun OnboardingPage(
         horizontalGravity = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
+        Image(
+            asset = imageResource(id = onboardingPage.image.map()),
+            modifier = Modifier.fillMaxWidth()
+        )
         Text(text = onboardingPage.title)
         Text(text = onboardingPage.description)
     }
