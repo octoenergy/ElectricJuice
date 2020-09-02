@@ -9,7 +9,9 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.setContent
+import androidx.core.view.WindowCompat
 import androidx.ui.tooling.preview.Preview
+import com.octopus.electricjuice.common.ProvideDisplayInsets
 import com.octopus.electricjuice.common.ui.MotherAppCompatActivity
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.githubrepositories.MainViewModel
@@ -29,6 +31,9 @@ class ElectricJuiceActivity : MotherAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // This app draws behind the system bars, so we want to handle fitting system windows
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             MyApp {
                 OnboardingScreenContainer(onboardingViewModel = onboardingViewModel)
@@ -41,7 +46,9 @@ class ElectricJuiceActivity : MotherAppCompatActivity() {
 fun MyApp(content: @Composable () -> Unit) {
     ElectricJuiceTheme {
         Surface(color = MaterialTheme.colors.background) {
-            content()
+            ProvideDisplayInsets {
+                content()
+            }
         }
     }
 }

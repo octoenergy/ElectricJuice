@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ConstraintLayout
+import androidx.compose.foundation.layout.Stack
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
@@ -19,6 +20,9 @@ import androidx.ui.tooling.preview.Preview
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.octopus.electricjuice.R
+import com.octopus.electricjuice.common.navigationBarsPadding
+import com.octopus.electricjuice.common.statusBarsPadding
+import com.octopus.electricjuice.common.systemBarsPadding
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
 
 @Composable
@@ -42,26 +46,33 @@ fun OnboardingScreen(
     onNextClicked: () -> Unit,
     onGetStartedClicked: () -> Unit,
 ) {
-    ConstraintLayout(Modifier.fillMaxSize()) {
-        val (pager, skip, dots, next, getStarted) = createRefs()
+    Stack {
         PageBackground(background = R.drawable.background, modifier = Modifier.fillMaxSize())
         Pager(state.onboardingPages, state.currentPageNumber, Modifier.fillMaxSize())
-        SkipButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
-            top.linkTo(parent.top)
-            end.linkTo(parent.end)
-        })
-        PagerDots(modifier = Modifier.constrainAs(dots) {
-            bottom.linkTo(parent.bottom)
-            start.linkTo(parent.start)
-        })
-        GetStartedButton(onClick = onGetStartedClicked, modifier = Modifier.constrainAs(getStarted) {
-            bottom.linkTo(parent.bottom)
-            end.linkTo(parent.end)
-        })
-        NextButton(onClick = onNextClicked, modifier = Modifier.constrainAs(next) {
-            bottom.linkTo(parent.bottom)
-            end.linkTo(parent.end)
-        })
+        ConstraintLayout(
+            Modifier.fillMaxSize()
+                .systemBarsPadding()
+        ) {
+            val (skip, dots, next, getStarted) = createRefs()
+            SkipButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
+                top.linkTo(parent.top)
+                end.linkTo(parent.end)
+            })
+            PagerDots(modifier = Modifier.constrainAs(dots) {
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+            })
+            GetStartedButton(
+                onClick = onGetStartedClicked,
+                modifier = Modifier.constrainAs(getStarted) {
+                    bottom.linkTo(parent.bottom)
+                    end.linkTo(parent.end)
+                })
+            NextButton(onClick = onNextClicked, modifier = Modifier.constrainAs(next) {
+                bottom.linkTo(parent.bottom)
+                end.linkTo(parent.end)
+            })
+        }
     }
 }
 

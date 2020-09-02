@@ -42,7 +42,7 @@ dependencies {
 android {
     compileSdkVersion(Config.compileSdk)
     defaultConfig {
-        applicationId = "com.octopus.electricjuice"
+        applicationId = Config.applicationId
         minSdkVersion(Config.minSdk)
         targetSdkVersion(Config.targetSdk)
         versionCode = Config.versionCode

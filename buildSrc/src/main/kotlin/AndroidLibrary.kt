@@ -1,6 +1,6 @@
 object AndroidLibraryVersion {
     val appCompat = "1.1.0"
-    val core = "1.0.2"
+    val core = "1.5.0-alpha02"
     val constraintLayout = "2.0.0-beta6"
     val fragment = "1.2.4"
     val material = "1.1.0"
