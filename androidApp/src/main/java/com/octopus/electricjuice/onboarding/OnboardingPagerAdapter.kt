@@ -6,16 +6,18 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class OnboardingPagerAdapter(
+    private val onboardingPages: List<OnboardingPage>,
     activity: AppCompatActivity,
-    val itemsCount: Int
 ) : FragmentStateAdapter(activity) {
 
     override fun getItemCount(): Int {
-        return itemsCount
+        return onboardingPages.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        return OnboardingPageFragment.instance()
+        val fragment = OnboardingPageFragment.instance()
+        fragment.onboardingPage = onboardingPages[position]
+        return fragment
     }
 
 //    override fun getCount(): Int {

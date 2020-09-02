@@ -25,6 +25,17 @@ class OnboardingPageFragment : MotherFragment() {
         }
     }
 
+    /**
+     * Yes this is rather hacky
+     * Java serializable/parcelize isn't a concept in KMP
+     * so can't add objects to bundle without pre-mapping to android world
+     *
+     * In this case it wouldn't be an issue, so lets skip.
+     * Additionally, this fragment is a stop gap until Jetpack Compose supports ViewPagers
+     * no use writing a complex solution that may well not be needed soon
+     */
+    var onboardingPage: OnboardingPage? = null
+
     override fun getLifecycleReceivers(): List<LifecycleReceiver> {
         return emptyList()
     }
@@ -35,7 +46,7 @@ class OnboardingPageFragment : MotherFragment() {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                OnboardingPage(onboardingPage = aOnboardingPage())
+                OnboardingPage(onboardingPage = onboardingPage!!)
             }
         }
     }

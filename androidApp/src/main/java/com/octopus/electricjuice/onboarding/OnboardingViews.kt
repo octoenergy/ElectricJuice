@@ -86,7 +86,7 @@ fun Pager(
     AndroidView(viewBlock = {
         val viewPager = ViewPager2(it)
 //        viewPager.id = R.id.viewPager
-        viewPager.adapter = OnboardingPagerAdapter(it as AppCompatActivity, 3)
+        viewPager.adapter = OnboardingPagerAdapter(onboardingPages, it as AppCompatActivity)
         viewPager.setPageTransformer(ZoomOutPageTransformer())
         viewPager
     }) {
