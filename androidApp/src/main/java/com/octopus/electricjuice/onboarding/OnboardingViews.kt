@@ -1,5 +1,7 @@
 package com.octopus.electricjuice.onboarding
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ConstraintLayout
@@ -8,8 +10,12 @@ import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.vectorResource
 import androidx.ui.tooling.preview.Preview
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
+import com.octopus.electricjuice.R
 
 @Composable
 fun OnboardingScreenContainer(
@@ -30,6 +36,7 @@ fun OnboardingScreen(
 ) {
     ConstraintLayout(Modifier.fillMaxSize()) {
         val (pager, skip, dots, next, getStarted) = createRefs()
+        PageBackground(background = R.drawable.background, modifier = Modifier.fillMaxSize())
         Pager(state.onboardingPage, state.currentPageNumber)
         SkipButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
             top.linkTo(parent.top)
@@ -61,6 +68,18 @@ fun Pager(
 //    }) {
 //        it.currentItem = currentPage
 //    }
+}
+
+@Composable
+fun PageBackground(
+    @DrawableRes background: Int,
+    modifier: Modifier
+) {
+    Image(
+        asset = imageResource(id = background),
+        contentScale = ContentScale.Fit,
+        modifier = modifier
+    )
 }
 
 @Composable
@@ -108,10 +127,17 @@ fun PagerDots(modifier: Modifier) {
     Text(text = "Pager dots", modifier = modifier)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    ElectricJuiceTheme {
-//        OnboardingScreen({})
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    ElectricJuiceTheme {
+        OnboardingScreen(
+            state = aOnboardingViewState(),
+            onSkipClicked = {}
+        )
+    }
+}
+
+private fun aOnboardingViewState(): OnboardingViewModel.ViewState {
+    return OnboardingViewModel.ViewState()
+}
