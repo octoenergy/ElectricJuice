@@ -3,6 +3,7 @@ package com.octopus.electricjuice.onboarding
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ConstraintLayout
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -27,16 +28,25 @@ fun OnboardingScreen(
     state: OnboardingViewModel.ViewState,
     onSkipClicked: () -> Unit
 ) {
-    ConstraintLayout {
+    ConstraintLayout(Modifier.fillMaxSize()) {
         val (pager, skip, dots, next, getStarted) = createRefs()
         Pager(state.onboardingPage, state.currentPageNumber)
         SkipButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
             top.linkTo(parent.top)
             end.linkTo(parent.end)
         })
-//        PagerDots()
-//        NextButton()
-//        GetStartedButton()
+        PagerDots(modifier = Modifier.constrainAs(dots) {
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+        })
+        GetStartedButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(getStarted) {
+            bottom.linkTo(parent.bottom)
+            end.linkTo(parent.end)
+        })
+        NextButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(next) {
+            bottom.linkTo(parent.bottom)
+            end.linkTo(parent.end)
+        })
     }
 }
 
@@ -74,18 +84,28 @@ fun SkipButton(
 }
 
 @Composable
-fun NextButton() {
-    Text(text = "Next")
+fun NextButton(
+    onClick: () -> Unit,
+    modifier: Modifier
+) {
+    Button(onClick = onClick, modifier = modifier) {
+        Text("Next")
+    }
 }
 
 @Composable
-fun GetStartedButton() {
-    Text(text = "Get started")
+fun GetStartedButton(
+    onClick: () -> Unit,
+    modifier: Modifier
+) {
+    Button(onClick = onClick, modifier = modifier) {
+        Text("Get started")
+    }
 }
 
 @Composable
-fun PagerDots() {
-    Text(text = "Pager dots")
+fun PagerDots(modifier: Modifier) {
+    Text(text = "Pager dots", modifier = modifier)
 }
 
 //@Preview(showBackground = true)
