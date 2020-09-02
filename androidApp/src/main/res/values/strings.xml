@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">ElectricJuice</string>
+    <string name="onboarding_page_one_title">ElectricJuice</string>
+    <string name="onboarding_page_one_description">ElectricJuice</string>
+    <string name="onboarding_page_two_title">ElectricJuice</string>
+    <string name="onboarding_page_two_description">ElectricJuice</string>
+    <string name="onboarding_page_three_title">ElectricJuice</string>
+    <string name="onboarding_page_three_description">ElectricJuice</string>
+
+
+
+
     <string name="go_to_repository">Go to repository</string>
     <string name="load_data">Load data</string>
     <string name="title">Load data</string>
