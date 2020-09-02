@@ -23,6 +23,7 @@ dependencies {
     implementation(AndroidLibrary.constraintLayout)
     implementation(AndroidLibrary.lifecycleExtensions)
     implementation(AndroidLibrary.coreKotlinExt)
+    implementation(AndroidLibrary.viewPager2)
     implementation(AndroidLibrary.navigation)
     implementation(AndroidLibrary.navigationUi)
     kapt(AndroidLibrary.databindingCompiler)

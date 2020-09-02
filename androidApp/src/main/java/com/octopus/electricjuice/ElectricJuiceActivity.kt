@@ -13,13 +13,15 @@ import androidx.ui.tooling.preview.Preview
 import com.octopus.electricjuice.common.ui.MotherAppCompatActivity
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.githubrepositories.MainViewModel
+import com.octopus.electricjuice.onboarding.OnboardingScreenContainer
+import com.octopus.electricjuice.onboarding.OnboardingViewModel
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
 import javax.inject.Inject
 
 class ElectricJuiceActivity : MotherAppCompatActivity() {
 
     @Inject
-    lateinit var mainViewModel: MainViewModel
+    lateinit var onboardingViewModel: OnboardingViewModel
 
     override fun getLifecycleReceivers(): List<LifecycleReceiver> {
         return emptyList()
@@ -29,10 +31,7 @@ class ElectricJuiceActivity : MotherAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                LoadingScreenContainer(
-                    mainViewModel = mainViewModel,
-                    onButtonClicked = { mainViewModel.onAction(MainViewModel.UiAction.LoadReposClicked) }
-                )
+                OnboardingScreenContainer(onboardingViewModel = onboardingViewModel)
             }
         }
     }
@@ -44,46 +43,5 @@ fun MyApp(content: @Composable () -> Unit) {
         Surface(color = MaterialTheme.colors.background) {
             content()
         }
-    }
-}
-
-@Composable
-fun LoadingScreenContainer(
-    mainViewModel: MainViewModel,
-    onButtonClicked: () -> Unit
-) {
-    val state = mainViewModel.viewStateStream().collectAsState(mainViewModel.defaultViewState())
-    if (!state.value.loadingIsVisible) {
-        LoadingScreen(onButtonClicked = onButtonClicked)
-    } else {
-        Text("Loading")
-    }
-}
-
-@Composable
-fun LoadingScreen(
-    onButtonClicked: () -> Unit
-) {
-    Column {
-        Text(text = "Click the Button!")
-        Button(onClick = onButtonClicked) {
-            Text("Load Repos")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ElectricJuiceTheme {
-        LoadingScreen({})
-    }
-}
-
-@Preview(showBackground = false)
-@Composable
-fun AlternatePreview() {
-    ElectricJuiceTheme {
-        LoadingScreen({})
     }
 }

@@ -10,6 +10,7 @@ object AndroidLibraryVersion {
     val coreKotlinExt = "1.2.0"
     val annotation = "1.1.0"
     val compose = "1.0.0-alpha01"
+    val viewPager2 = "1.0.0"
 }
 
 object AndroidLibrary {
@@ -25,6 +26,7 @@ object AndroidLibrary {
     val databindingCompiler = "com.android.databinding:compiler:${PluginVersion.gradle}"
     val coreKotlinExt = "androidx.core:core-ktx:${AndroidLibraryVersion.coreKotlinExt}"
     val annotations = "androidx.annotation:annotation:${AndroidLibraryVersion.annotation}"
+    val viewPager2 = "androidx.viewpager2:viewpager2:${AndroidLibraryVersion.viewPager2}"
 
     val composeUi = "androidx.compose.ui:ui:${AndroidLibraryVersion.compose}"
     val composeMaterial = "androidx.compose.material:material:${AndroidLibraryVersion.compose}"
