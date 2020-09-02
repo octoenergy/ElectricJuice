@@ -11,6 +11,14 @@ import SwiftUI
 import shared
 
 class NavigatorImpl: Navigator {
+    func goToMap() {
+        
+    }
+    
+    func goToOnboarding() {
+        
+    }
+    
 
     var navigationController: UINavigationController {
         let window = UIApplication.shared.windows.first!

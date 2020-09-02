@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+import shared
+
+
 
 struct OnboardingContainerView<Content: View>: View {
     let pageCount: Int
@@ -40,47 +43,71 @@ struct OnboardingContainerView<Content: View>: View {
             )
         }
     }
-
 }
 
 struct OnboardingContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingControllerView()
     }
 }
 
-struct ContentoView: View {
-    @State private var currentPage = 0
 
+
+
+
+
+
+
+
+
+
+
+
+
+///Experimental Views and Example code
+
+struct PontentView: View {
+    @State private var alignment: HorizontalAlignment = .leading
+    
     var body: some View {
-        OnboardingContainerView(pageCount: 3, currentIndex: $currentPage) {
-            Color.blue
-            Color.red
-            Color.green
+        VStack {
+            Spacer()
+            
+            VStack(alignment: alignment) {
+                LabelView(title: "Athos", color: .green)
+                    .alignmentGuide(.leading, computeValue: { _ in 30 } )
+                    .alignmentGuide(HorizontalAlignment.center, computeValue: { _ in 30 } )
+                    .alignmentGuide(.trailing, computeValue: { _ in 90 } )
+                
+                LabelView(title: "Porthos", color: .red)
+                    .alignmentGuide(.leading, computeValue: { _ in 90 } )
+                    .alignmentGuide(HorizontalAlignment.center, computeValue: { _ in 30 } )
+                    .alignmentGuide(.trailing, computeValue: { _ in 30 } )
+                
+                LabelView(title: "Aramis", color: .blue) // use implicit guide
+                
+            }
+            
+            Spacer()
+            HStack {
+                Button("leading") { withAnimation(.easeInOut(duration: 2)) { self.alignment = .leading }}
+                Button("center") { withAnimation(.easeInOut(duration: 2)) { self.alignment = .center }}
+                Button("trailing") { withAnimation(.easeInOut(duration: 2)) { self.alignment = .trailing }}
+            }
         }
     }
 }
 
-struct OnboardingView: View {
-
-    let colour1 = Color(red: 0.106, green: 0.024, blue: 0.227)
-    let gradient = Gradient(colors: [.black, .pink])
+struct LabelView: View {
+    let title: String
+    let color: Color
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [colour1, colour1, colour1, colour1, colour1, colour1, .white]), startPoint: UnitPoint(x: 0.5,y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
-            .edgesIgnoringSafeArea(.all)
-            .overlay(
-                VStack(alignment: .center) {
-                    Image("onboarding_location")
-                        .alignmentGuide(.trailing, computeValue: { d in d[explicit: .trailing]! })
-//                        .padding()
-                
-                }
-        )
-
-        
-        
-        
+        Text(title)
+            .font(.title)
+            .padding(10)
+            .frame(width: 200, height: 40)
+            .background(RoundedRectangle(cornerRadius: 8)
+                .fill(LinearGradient(gradient: Gradient(colors: [color, .black]), startPoint: UnitPoint(x: 0, y: 0), endPoint: UnitPoint(x: 2, y: 1))))
     }
-    
 }

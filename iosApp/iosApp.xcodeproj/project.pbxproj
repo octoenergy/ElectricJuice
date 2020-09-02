@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		333463BE24FE76A00017A8D4 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */; };
-		333463C024FFA16E0017A8D4 /* Gotham Book Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 333463BF24FFA16E0017A8D4 /* Gotham Book Regular.otf */; };
-		333463C224FFA1CF0017A8D4 /* Gotham Medium Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333463C124FFA1CE0017A8D4 /* Gotham Medium Regular.ttf */; };
+		333463C024FFA16E0017A8D4 /* Gotham-Book-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 333463BF24FFA16E0017A8D4 /* Gotham-Book-Regular.otf */; };
+		333463C224FFA1CF0017A8D4 /* Gotham-Medium-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333463C124FFA1CE0017A8D4 /* Gotham-Medium-Regular.ttf */; };
 		334140B724ED3277003988E7 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = 334140B624ED3277003988E7 /* shared */; };
 		3370DA2D24EEBE0700FBDEBE /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 3370DA2C24EEBE0700FBDEBE /* Resolver */; };
 		3370DA3024EEBF7500FBDEBE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3370DA2F24EEBF7500FBDEBE /* Swinject */; };
@@ -18,6 +18,9 @@
 		33949C0224F95C5F00AA8289 /* AnnouncerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0124F95C5F00AA8289 /* AnnouncerImpl.swift */; };
 		33949C0424F95C6E00AA8289 /* LoggerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0324F95C6E00AA8289 /* LoggerImpl.swift */; };
 		33949C0924F95D4A00AA8289 /* GithubRepo+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */; };
+		33B4E76E24FFFAC000F6F7B1 /* OnboardingControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */; };
+		33B4E77024FFFAE300F6F7B1 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */; };
+		33B4E77224FFFB4F00F6F7B1 /* Binding+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */; };
 		33C315DD24F5128800E300B6 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C315DC24F5128800E300B6 /* DetailsView.swift */; };
 		33CACBBC24F3BDC1000F6BE2 /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CACBBB24F3BDC1000F6BE2 /* MainContainer.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
@@ -65,14 +68,17 @@
 
 /* Begin PBXFileReference section */
 		333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
-		333463BF24FFA16E0017A8D4 /* Gotham Book Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Book Regular.otf"; sourceTree = "<group>"; };
-		333463C124FFA1CE0017A8D4 /* Gotham Medium Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Medium Regular.ttf"; sourceTree = "<group>"; };
+		333463BF24FFA16E0017A8D4 /* Gotham-Book-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book-Regular.otf"; sourceTree = "<group>"; };
+		333463C124FFA1CE0017A8D4 /* Gotham-Medium-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium-Regular.ttf"; sourceTree = "<group>"; };
 		334140B624ED3277003988E7 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../shared; sourceTree = "<group>"; };
 		33949BFA24F95B4800AA8289 /* NavigatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
 		33949BFC24F95BA300AA8289 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		33949C0124F95C5F00AA8289 /* AnnouncerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncerImpl.swift; sourceTree = "<group>"; };
 		33949C0324F95C6E00AA8289 /* LoggerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerImpl.swift; sourceTree = "<group>"; };
 		33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubRepo+Additions.swift"; sourceTree = "<group>"; };
+		33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerView.swift; sourceTree = "<group>"; };
+		33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Additions.swift"; sourceTree = "<group>"; };
 		33C315DC24F5128800E300B6 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		33CACBBB24F3BDC1000F6BE2 /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,8 +129,8 @@
 		333463C324FFA1D70017A8D4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				333463C124FFA1CE0017A8D4 /* Gotham Medium Regular.ttf */,
-				333463BF24FFA16E0017A8D4 /* Gotham Book Regular.otf */,
+				333463C124FFA1CE0017A8D4 /* Gotham-Medium-Regular.ttf */,
+				333463BF24FFA16E0017A8D4 /* Gotham-Book-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -133,7 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				7555FF82242A565900829871 /* ContentView.swift */,
+				33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */,
 				333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */,
+				33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */,
 				33949BFC24F95BA300AA8289 /* ActivityIndicator.swift */,
 				33C315DC24F5128800E300B6 /* DetailsView.swift */,
 			);
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */,
+				33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,9 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333463C024FFA16E0017A8D4 /* Gotham Book Regular.otf in Resources */,
+				333463C024FFA16E0017A8D4 /* Gotham-Book-Regular.otf in Resources */,
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
-				333463C224FFA1CF0017A8D4 /* Gotham Medium Regular.ttf in Resources */,
+				333463C224FFA1CF0017A8D4 /* Gotham-Medium-Regular.ttf in Resources */,
 				334140B724ED3277003988E7 /* shared in Resources */,
 				7555FF88242A565B00829871 /* Preview Assets.xcassets in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
@@ -415,11 +424,14 @@
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				33C315DD24F5128800E300B6 /* DetailsView.swift in Sources */,
 				33949C0924F95D4A00AA8289 /* GithubRepo+Additions.swift in Sources */,
+				33B4E76E24FFFAC000F6F7B1 /* OnboardingControllerView.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				33949BFB24F95B4800AA8289 /* NavigatorImpl.swift in Sources */,
 				33CACBBC24F3BDC1000F6BE2 /* MainContainer.swift in Sources */,
+				33B4E77224FFFB4F00F6F7B1 /* Binding+Additions.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				33949C0424F95C6E00AA8289 /* LoggerImpl.swift in Sources */,
+				33B4E77024FFFAE300F6F7B1 /* OnboardingPageView.swift in Sources */,
 				33949C0224F95C5F00AA8289 /* AnnouncerImpl.swift in Sources */,
 				333463BE24FE76A00017A8D4 /* OnboardingContainerView.swift in Sources */,
 				33949BFD24F95BA300AA8289 /* ActivityIndicator.swift in Sources */,
