@@ -27,7 +27,7 @@ class OnboardingViewModel @MakeInjectable constructor(
     }
 
     private fun selectNextPage() {
-        val nextPageNumber = lastViewState.currentPageNumber
+        val nextPageNumber = lastViewState.currentPageNumber + 1
         val numberOfPages = lastViewState.onboardingPages.size
         emit(
             lastViewState.copy(
