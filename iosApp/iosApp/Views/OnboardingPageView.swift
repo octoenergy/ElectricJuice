@@ -27,12 +27,13 @@ struct OnboardingPageView: View {
                             Image(imageName)
                             if pageIndex == 2 { Spacer() }
                         }
+                        .padding(.bottom, 47.0)
                     Text(title)
-                        .font(.custom("Gotham-Medium-Regular", size: 20))
+                        .font(.custom("GothamMedium", size: 20))
                         .padding()
                         .foregroundColor(.white)
                     Text(description)
-                        .font(.custom("Gotham-Book-Regular", size: 14))
+                        .font(.custom("Gotham", size: 14))
                         .padding()
                         .foregroundColor(.white)
                 }

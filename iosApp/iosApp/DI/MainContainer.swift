@@ -37,6 +37,7 @@ class MainContainer {
         container.register(Logger.self) { _ in LoggerImpl() }
         container.register(DispatcherProvider.self) { _ in DispatcherProvider() }
 
+        //MainViewModel
         container.register(MainViewModel.self) { resolver in
             let repoManager = resolver.resolve(GithubRepoManager.self)!
             let navigator = resolver.resolve(Navigator.self)!
@@ -44,6 +45,13 @@ class MainContainer {
             let dispatchProvider = resolver.resolve(DispatcherProvider.self)!
             let logger = resolver.resolve(Logger.self)!
             return MainViewModel(githubRepoManager: repoManager, navigator: navigator, announcer: announcer, dispatcherProvider: dispatchProvider, logger: logger)
+        }
+        
+ 
+        //OnboardingViewModel
+        container.register(OnboardingViewModel.self) { resolver in
+            let dispatcherProvider = resolver.resolve(DispatcherProvider.self)!
+            return OnboardingViewModel(dispatcherProvider: dispatcherProvider)
         }
     }
 }

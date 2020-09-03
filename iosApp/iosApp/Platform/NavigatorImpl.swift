@@ -27,10 +27,10 @@ class NavigatorImpl: Navigator {
     
     func goToDetails(githubRepo: GithubRepo) {
         let view = DetailsView(repo: githubRepo)
+
         let controller = UIHostingController(rootView: view)
         navigationController.pushViewController(controller, animated: true)
     }
-    
     func goToUrl(url: String) {
         // todo
     }

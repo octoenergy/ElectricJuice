@@ -35,7 +35,8 @@ struct OnboardingContainerView<Content: View>: View {
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.width
-                }.onEnded { value in
+                }
+                .onEnded { value in
                     let offset = value.translation.width / geometry.size.width
                     let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
                     self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
@@ -47,7 +48,11 @@ struct OnboardingContainerView<Content: View>: View {
 
 struct OnboardingContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingControllerView()
+        OnboardingContainerView(pageCount: 3, currentIndex: .mock(0)) {
+            OnboardingPageView(title: "Welcome to Electric Juice", description: "Find, charge and pay in one place, with our ever-expanding network of charge points across the UK.", imageName: "onboarding_location", pageIndex: 0)
+            OnboardingPageView(title: "Charge with one tap", description: "Start charging in a flash, with a single tap in the app or with your Electric Juice card.", imageName: "onboarding_charge", pageIndex: 1)
+            OnboardingPageView(title: "Pay your way", description:  "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.", imageName: "onboarding_payment", pageIndex: 2)
+        }
     }
 }
 

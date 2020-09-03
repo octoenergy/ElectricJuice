@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Binding {
     static func mock(_ value: Value) -> Self {
