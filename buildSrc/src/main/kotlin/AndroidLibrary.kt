@@ -11,6 +11,7 @@ object AndroidLibraryVersion {
     val annotation = "1.1.0"
     val compose = "1.0.0-alpha01"
     val viewPager2 = "1.0.0"
+    val pageIndicators = "1.0.3"
 }
 
 object AndroidLibrary {
@@ -43,6 +44,8 @@ object AndroidLibrary {
     val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${AndroidLibraryVersion.dagger}"
     val daggerCompiler = "com.google.dagger:dagger-compiler:${AndroidLibraryVersion.dagger}"
     val daggerAndroidCompiler = "com.google.dagger:dagger-android-processor:${AndroidLibraryVersion.dagger}"
+
+    val pageIndicators = "com.romandanylyk:pageindicatorview:${AndroidLibraryVersion.pageIndicators}"
 
     val ktorOkHttpEngine = "io.ktor:ktor-client-okhttp:${KmpLibraryVersion.ktor}"
 }

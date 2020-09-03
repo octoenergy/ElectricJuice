@@ -19,11 +19,13 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.ui.tooling.preview.Preview
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.octopus.electricjuice.ElectricJuiceActivity
 import com.octopus.electricjuice.R
 import com.octopus.electricjuice.common.navigationBarsPadding
 import com.octopus.electricjuice.common.statusBarsPadding
 import com.octopus.electricjuice.common.systemBarsPadding
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
+import com.rd.PageIndicatorView
 
 @Composable
 fun OnboardingScreenContainer(
@@ -137,7 +139,16 @@ fun GetStartedButton(
 
 @Composable
 fun PagerDots(modifier: Modifier) {
-    Text(text = "Pager dots", modifier = modifier)
+    AndroidView(viewBlock = {
+        val pageIndicators = PageIndicatorView(it)
+        pageIndicators.radius = 6
+        pageIndicators.padding = 6
+        pageIndicators.selectedColor = it.getColor(R.color.colorAccent)
+        pageIndicators.unselectedColor = it.getColor(R.color.colorPrimary)
+        pageIndicators
+    }) {
+//        it.currentItem = currentPage
+    }
 }
 
 @Preview(showBackground = true)

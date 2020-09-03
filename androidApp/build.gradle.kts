@@ -37,6 +37,8 @@ dependencies {
     implementation(AndroidLibrary.daggerAndroidSupport)
     kapt(AndroidLibrary.daggerCompiler)
     kapt(AndroidLibrary.daggerAndroidCompiler)
+
+    implementation(AndroidLibrary.pageIndicators)
 }
 
 android {
