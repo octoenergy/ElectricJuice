@@ -6,21 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ModalDrawerLayout
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
+import com.octopus.electricjuice.common.PREVIEW_MEDIUM_TEXT
+import com.octopus.electricjuice.common.PREVIEW_SHORT_TEXT
 import com.octopus.electricjuice.common.map
 import com.octopus.electricjuice.common.ui.MotherFragment
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
+import com.octopus.electricjuice.theme.grid16
+import com.octopus.electricjuice.theme.grid32
 
 class OnboardingPageFragment : MotherFragment() {
 
@@ -66,16 +69,29 @@ fun OnboardingPage(
         horizontalGravity = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
+        Spacer(modifier = Modifier.weight(0.3f))
         Image(
             asset = imageResource(id = onboardingPage.image.map()),
             modifier = Modifier.fillMaxWidth()
         )
-        Text(text = onboardingPage.title)
-        Text(text = onboardingPage.description)
+        Spacer(modifier = Modifier.height(grid32))
+        Text(
+            text = onboardingPage.title,
+            style = MaterialTheme.typography.subtitle1,
+            color = MaterialTheme.colors.onPrimary,
+        )
+        Spacer(modifier = Modifier.height(grid16))
+        Text(
+            text = onboardingPage.description,
+            style = MaterialTheme.typography.body1,
+            color = MaterialTheme.colors.onPrimary,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.weight(0.7f))
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun OnboardingPagePreview() {
     ElectricJuiceTheme {
@@ -87,6 +103,6 @@ fun OnboardingPagePreview() {
 
 private fun aOnboardingPage(): OnboardingPage {
     return OnboardingPage(
-        OnboardingImage.OnboardingPageOne, "Title", "Description"
+        OnboardingImage.OnboardingPageOne, PREVIEW_SHORT_TEXT, PREVIEW_MEDIUM_TEXT
     )
 }
