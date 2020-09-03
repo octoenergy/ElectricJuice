@@ -8,7 +8,7 @@ import com.octopus.electricjuice.R
 fun OnboardingImage.mapOnboardingImage(): Int {
     return when (this) {
         OnboardingImage.OnboardingPageOne -> R.drawable.onboarding_page_one
-        OnboardingImage.OnboardingPageTwo -> R.drawable.onboarding_page_one
-        OnboardingImage.OnboardingPageThree -> R.drawable.onboarding_page_one
+        OnboardingImage.OnboardingPageTwo -> R.drawable.onboarding_page_two
+        OnboardingImage.OnboardingPageThree -> R.drawable.onboarding_page_three
     }
 }

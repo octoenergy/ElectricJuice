@@ -49,7 +49,7 @@ fun OnboardingScreen(
     onGetStartedClicked: () -> Unit,
 ) {
     Stack {
-        PageBackground(background = R.drawable.background, modifier = Modifier.fillMaxSize())
+        PageBackground(background = R.drawable.onboarding_background, modifier = Modifier.fillMaxSize())
         Pager(state.onboardingPages, state.currentPageNumber, Modifier.fillMaxSize())
         ConstraintLayout(
             Modifier.fillMaxSize()
@@ -151,7 +151,7 @@ fun PagerDots(modifier: Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun OnboardingScreenPreview() {
     ElectricJuiceTheme {
