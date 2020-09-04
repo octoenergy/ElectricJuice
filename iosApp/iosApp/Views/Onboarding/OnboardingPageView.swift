@@ -13,7 +13,7 @@ struct OnboardingPageView: View {
     let colour1 = Color(red: 0.106, green: 0.024, blue: 0.227)
     let gradient = Gradient(colors: [.black, .pink])
     @State var title: String
-    @State var description: String
+    @State var subtitle: String
     @State var imageName: String
     let pageIndex: Int
     
@@ -32,7 +32,7 @@ struct OnboardingPageView: View {
                         .font(.custom("GothamMedium", size: 20))
                         .padding()
                         .foregroundColor(.white)
-                    Text(description)
+                    Text(subtitle)
                         .font(.custom("Gotham", size: 14))
                         .padding()
                         .foregroundColor(.white)
@@ -44,6 +44,6 @@ struct OnboardingPageView: View {
 
 struct OnboardingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingPageView(title: "Charge with one tap", description: "Start charging in a flash, with a single tap in the app or with your Electric Juice card.", imageName: "onboarding_charge", pageIndex: 1)
+        OnboardingPageView(title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card.", imageName: "onboarding_charge", pageIndex: 1)
     }
 }

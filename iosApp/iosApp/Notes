@@ -1,5 +1,0 @@
-
-
-Notes and Observations
-
-- SwiftUI preview crashes out when it tries to use any shared code in the 'onAppear' closure that includes both calling functions or setting variables. A common example of this is setting up observers on the viewState which is 'shared'. I've tried it out on 'onDisappear' and preview works fine. Seems it tries to process the code before it appears and may not like Objc code

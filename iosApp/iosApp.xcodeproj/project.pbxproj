@@ -18,9 +18,11 @@
 		33949C0224F95C5F00AA8289 /* AnnouncerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0124F95C5F00AA8289 /* AnnouncerImpl.swift */; };
 		33949C0424F95C6E00AA8289 /* LoggerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0324F95C6E00AA8289 /* LoggerImpl.swift */; };
 		33949C0924F95D4A00AA8289 /* GithubRepo+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */; };
-		33B4E76E24FFFAC000F6F7B1 /* OnboardingControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */; };
 		33B4E77024FFFAE300F6F7B1 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */; };
 		33B4E77224FFFB4F00F6F7B1 /* Binding+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */; };
+		33B4E77625012F2F00F6F7B1 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E77525012F2F00F6F7B1 /* OnboardingButton.swift */; };
+		33B4E779250152BF00F6F7B1 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E778250152BF00F6F7B1 /* PageControlView.swift */; };
+		33B4E77B250259F200F6F7B1 /* PageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E77A250259F200F6F7B1 /* PageContainerView.swift */; };
 		33C315DD24F5128800E300B6 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C315DC24F5128800E300B6 /* DetailsView.swift */; };
 		33CACBBC24F3BDC1000F6BE2 /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CACBBB24F3BDC1000F6BE2 /* MainContainer.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
@@ -76,10 +78,11 @@
 		33949C0124F95C5F00AA8289 /* AnnouncerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncerImpl.swift; sourceTree = "<group>"; };
 		33949C0324F95C6E00AA8289 /* LoggerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerImpl.swift; sourceTree = "<group>"; };
 		33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubRepo+Additions.swift"; sourceTree = "<group>"; };
-		33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerView.swift; sourceTree = "<group>"; };
 		33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Additions.swift"; sourceTree = "<group>"; };
-		33B4E7732500E79400F6F7B1 /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
+		33B4E77525012F2F00F6F7B1 /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
+		33B4E778250152BF00F6F7B1 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		33B4E77A250259F200F6F7B1 /* PageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainerView.swift; sourceTree = "<group>"; };
 		33C315DC24F5128800E300B6 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		33CACBBB24F3BDC1000F6BE2 /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,10 +142,8 @@
 		33949C0024F95C2B00AA8289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33B4E77725014B5A00F6F7B1 /* Onboarding */,
 				7555FF82242A565900829871 /* ContentView.swift */,
-				33B4E76D24FFFAC000F6F7B1 /* OnboardingControllerView.swift */,
-				333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */,
-				33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */,
 				33949BFC24F95BA300AA8289 /* ActivityIndicator.swift */,
 				33C315DC24F5128800E300B6 /* DetailsView.swift */,
 			);
@@ -185,6 +186,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		33B4E77725014B5A00F6F7B1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */,
+				33B4E77A250259F200F6F7B1 /* PageContainerView.swift */,
+				33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */,
+				33B4E77525012F2F00F6F7B1 /* OnboardingButton.swift */,
+				33B4E778250152BF00F6F7B1 /* PageControlView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +232,6 @@
 				7555FF84242A565B00829871 /* Assets.xcassets */,
 				7555FF89242A565B00829871 /* LaunchScreen.storyboard */,
 				7555FF8C242A565B00829871 /* Info.plist */,
-				33B4E7732500E79400F6F7B1 /* Notes */,
 				7555FF86242A565B00829871 /* Preview Content */,
 			);
 			path = iosApp;
@@ -426,15 +438,17 @@
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				33C315DD24F5128800E300B6 /* DetailsView.swift in Sources */,
 				33949C0924F95D4A00AA8289 /* GithubRepo+Additions.swift in Sources */,
-				33B4E76E24FFFAC000F6F7B1 /* OnboardingControllerView.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				33949BFB24F95B4800AA8289 /* NavigatorImpl.swift in Sources */,
 				33CACBBC24F3BDC1000F6BE2 /* MainContainer.swift in Sources */,
 				33B4E77224FFFB4F00F6F7B1 /* Binding+Additions.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				33949C0424F95C6E00AA8289 /* LoggerImpl.swift in Sources */,
+				33B4E779250152BF00F6F7B1 /* PageControlView.swift in Sources */,
+				33B4E77625012F2F00F6F7B1 /* OnboardingButton.swift in Sources */,
 				33B4E77024FFFAE300F6F7B1 /* OnboardingPageView.swift in Sources */,
 				33949C0224F95C5F00AA8289 /* AnnouncerImpl.swift in Sources */,
+				33B4E77B250259F200F6F7B1 /* PageContainerView.swift in Sources */,
 				333463BE24FE76A00017A8D4 /* OnboardingContainerView.swift in Sources */,
 				33949BFD24F95BA300AA8289 /* ActivityIndicator.swift in Sources */,
 			);
