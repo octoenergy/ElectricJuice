@@ -36,22 +36,25 @@ class MainContainer {
         container.register(Announcer.self) { _ in AnnouncerImpl() }
         container.register(Logger.self) { _ in LoggerImpl() }
         container.register(DispatcherProvider.self) { _ in DispatcherProvider() }
-
+        container.register(ImageAndStringProvider.self) { _ in ImageAndStringProvider() }
+        
         //MainViewModel
         container.register(MainViewModel.self) { resolver in
-            let repoManager = resolver.resolve(GithubRepoManager.self)!
+            let dispatcherProvider = resolver.resolve(DispatcherProvider.self)!
             let navigator = resolver.resolve(Navigator.self)!
+            let repoManager = resolver.resolve(GithubRepoManager.self)!
             let announcer = resolver.resolve(Announcer.self)!
-            let dispatchProvider = resolver.resolve(DispatcherProvider.self)!
             let logger = resolver.resolve(Logger.self)!
-            return MainViewModel(githubRepoManager: repoManager, navigator: navigator, announcer: announcer, dispatcherProvider: dispatchProvider, logger: logger)
+            return MainViewModel(githubRepoManager: repoManager, navigator: navigator, announcer: announcer, dispatcherProvider: dispatcherProvider, logger: logger)
         }
         
  
         //OnboardingViewModel
         container.register(OnboardingViewModel.self) { resolver in
             let dispatcherProvider = resolver.resolve(DispatcherProvider.self)!
-            return OnboardingViewModel(dispatcherProvider: dispatcherProvider)
+            let navigator = resolver.resolve(Navigator.self)!
+            let resourceProvider = resolver.resolve(ImageAndStringProvider.self)!
+            return OnboardingViewModel(navigator: navigator, dispatcherProvider: dispatcherProvider, resourceProvider: resourceProvider)
         }
     }
 }

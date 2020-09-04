@@ -31,13 +31,14 @@ struct OnboardingButton: View {
     
     let action: () -> Void
     var body: some View {
-        Button(action: {
-            self.action()
-        }) {
+        Button(action: {} ) {
             image
-            .gesture(DragGesture(minimumDistance: 0.0)
+            .gesture(DragGesture(minimumDistance: 0.0) //Gesture used to allow colour change
                  .onChanged { _ in self.isPressed = true }
-                 .onEnded { _ in self.isPressed = false })
+                 .onEnded { _ in
+                    self.action()
+                    self.isPressed = false
+            })
         }
         .buttonStyle(PlainButtonStyle())
  
@@ -47,8 +48,6 @@ struct OnboardingButton: View {
 
 struct OnboardingButton_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingButton(buttonType: .mock(.text)) {
-            
-        }
+        OnboardingButton(buttonType: .mock(.text)) { }
     }
 }

@@ -44,24 +44,20 @@ struct PageContainerView<Content: View>: View {
         }
     }
 }
+extension NSString: JuicyImage {}
 
 
 struct PageContainerView_Previews: PreviewProvider {
-    static var onboardingPages: [OnboardingPage] = [OnboardingPage(title: "Welcome to Electric Juice", subtitle: "Find, charge and pay in one place, with our ever-expanding network of charge points across the UK."),
-    OnboardingPage(title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card."),
-    OnboardingPage(title: "Pay your way", subtitle: "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.")]
-    
-    //TODO:- Dummy Data
-    static var onboardingImages = ["onboarding_location",
-                                    "onboarding_charge",
-                                    "onboarding_payment"]
+    static var onboardingPages: [OnboardingPage] = [OnboardingPage(image: NSString("onboarding_location"), title: "Welcome to Electric Juice", subtitle: "Find, charge and pay in one place, with our ever-expanding network of charge points across the UK."),
+                                                    OnboardingPage(image: NSString("onboarding_charge"), title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card."),
+                                                    OnboardingPage(image: NSString("onboarding_payment"), title: "Pay your way", subtitle: "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.")]
     
     static var previews: some View {
         PageContainerView(pageCount: 3, currentIndex: .mock(0), content: {
             ForEach(0..<onboardingPages.count) { index in
                 OnboardingPageView(title: PageContainerView_Previews.onboardingPages[index].title,
                                    subtitle: PageContainerView_Previews.onboardingPages[index].subtitle, //Change once description is fixed
-                    imageName: PageContainerView_Previews.onboardingImages[index],
+                    imageName: PageContainerView_Previews.onboardingPages[index].image as! String,
                     pageIndex: index)
             }
         })
