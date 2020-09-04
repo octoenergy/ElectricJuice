@@ -3,21 +3,28 @@ package com.octopus.electricjuice.onboarding
 import android.widget.HorizontalScrollView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Box
+import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ConstraintLayout
-import androidx.compose.foundation.layout.Stack
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.RowScope.gravity
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
+import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.ui.tooling.preview.Preview
 import androidx.viewpager.widget.ViewPager
@@ -27,7 +34,7 @@ import com.octopus.electricjuice.R
 import com.octopus.electricjuice.common.navigationBarsPadding
 import com.octopus.electricjuice.common.statusBarsPadding
 import com.octopus.electricjuice.common.systemBarsPadding
-import com.octopus.electricjuice.theme.ElectricJuiceTheme
+import com.octopus.electricjuice.theme.*
 import com.rd.PageIndicatorView
 
 @Composable
@@ -66,7 +73,7 @@ fun OnboardingScreen(
                 }) {
                     Text(
                         stringResource(id = R.string.common_word_skip),
-                        color = MaterialTheme.colors.onPrimary,
+                        color = Color.White,
                         style = MaterialTheme.typography.button
                     )
                 }
@@ -76,25 +83,67 @@ fun OnboardingScreen(
                 start.linkTo(parent.start)
             })
             if (state.isGetStartedButtonVisible) {
-                Button(onClick = onGetStartedClicked, modifier = Modifier.constrainAs(getStarted) {
-                    bottom.linkTo(parent.bottom)
-                    end.linkTo(parent.end)
-                }) {
+                Button(
+                    onClick = onGetStartedClicked,
+                    modifier = Modifier.constrainAs(getStarted) {
+                        bottom.linkTo(parent.bottom)
+                        end.linkTo(parent.end)
+                    }) {
                     Text(
                         stringResource(id = R.string.onboarding_final_page_button),
-                        color = MaterialTheme.colors.onPrimary,
                         style = MaterialTheme.typography.button
                     )
                 }
             } else {
-                Button(onClick = onNextClicked, modifier = Modifier.constrainAs(next) {
-                    bottom.linkTo(parent.bottom)
-                    end.linkTo(parent.end)
-                }) {
-                    Text("Next")
+//                LayeredBackground(
+//                    shape = CircleShape,
+//                    modifier = Modifier.constrainAs(next) {
+//                        bottom.linkTo(parent.bottom)
+//                        end.linkTo(parent.end)
+//                    })
+                FloatingActionButton(
+                    backgroundColor = MaterialTheme.colors.primary,
+                    onClick = onNextClicked,
+                    modifier = Modifier.constrainAs(next) {
+                        bottom.linkTo(parent.bottom)
+                        end.linkTo(parent.end)
+                    }) {
+                    Icon(
+                        asset = vectorResource(id = R.drawable.ic_arrow_right),
+                        tint = MaterialTheme.colors.onPrimary,
+                    )
                 }
             }
         }
+    }
+}
+
+@Composable
+fun LayeredBackground(
+    shape: Shape,
+    modifier: Modifier,
+) {
+    Stack(modifier = modifier.width(96.dp)) {
+        Box(
+            shape = shape,
+            modifier = Modifier.size(grid48).padding(end = grid48).gravity(Alignment.CenterEnd),
+            backgroundColor = Color.Black.copy(alpha = 0.2f),
+        )
+        Box(
+            shape = shape,
+            modifier = Modifier.size(grid48).padding(end = grid32).gravity(Alignment.CenterEnd),
+            backgroundColor = Color.Black.copy(alpha = 0.4f),
+        )
+        Box(
+            shape = shape,
+            modifier = Modifier.size(grid48).padding(end = grid16).gravity(Alignment.CenterEnd),
+            backgroundColor = Color.Black.copy(alpha = 0.6f),
+        )
+        Box(
+            shape = shape,
+            modifier = Modifier.size(grid48).gravity(Alignment.CenterEnd),
+            backgroundColor = Color.Black.copy(alpha = 1f),
+        )
     }
 }
 

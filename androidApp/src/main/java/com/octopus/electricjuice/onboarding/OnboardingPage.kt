@@ -24,6 +24,7 @@ import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.theme.ElectricJuiceTheme
 import com.octopus.electricjuice.theme.grid16
 import com.octopus.electricjuice.theme.grid32
+import com.octopus.electricjuice.theme.grid48
 
 class OnboardingPageFragment : MotherFragment() {
 
@@ -74,7 +75,7 @@ fun OnboardingPage(
             asset = imageResource(id = onboardingPage.image.map()),
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(grid32))
+        Spacer(modifier = Modifier.height(grid48))
         Text(
             text = onboardingPage.title,
             style = MaterialTheme.typography.subtitle1,
