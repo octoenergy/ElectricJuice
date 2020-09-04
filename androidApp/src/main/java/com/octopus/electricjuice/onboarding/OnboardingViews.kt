@@ -59,30 +59,41 @@ fun OnboardingScreen(
         Pager(state.onboardingPages, state.currentPageNumber, Modifier.fillMaxSize())
         ConstraintLayout(Modifier.fillMaxSize().systemBarsPadding()) {
             val (skip, dots, next, getStarted) = createRefs()
-            TextButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
-                top.linkTo(parent.top)
-                end.linkTo(parent.end)
-            }) {
-                Text(
-                    stringResource(id = R.string.common_word_skip),
-                    color = MaterialTheme.colors.onPrimary,
-                    style = MaterialTheme.typography.button
-                )
+            if (state.isSkipButtonVisible) {
+                TextButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
+                    top.linkTo(parent.top)
+                    end.linkTo(parent.end)
+                }) {
+                    Text(
+                        stringResource(id = R.string.common_word_skip),
+                        color = MaterialTheme.colors.onPrimary,
+                        style = MaterialTheme.typography.button
+                    )
+                }
             }
             PagerDots(modifier = Modifier.constrainAs(dots) {
                 bottom.linkTo(parent.bottom)
                 start.linkTo(parent.start)
             })
-            GetStartedButton(
-                onClick = onGetStartedClicked,
-                modifier = Modifier.constrainAs(getStarted) {
+            if (state.isGetStartedButtonVisible) {
+                Button(onClick = onGetStartedClicked, modifier = Modifier.constrainAs(getStarted) {
                     bottom.linkTo(parent.bottom)
                     end.linkTo(parent.end)
-                })
-            NextButton(onClick = onNextClicked, modifier = Modifier.constrainAs(next) {
-                bottom.linkTo(parent.bottom)
-                end.linkTo(parent.end)
-            })
+                }) {
+                    Text(
+                        stringResource(id = R.string.onboarding_final_page_button),
+                        color = MaterialTheme.colors.onPrimary,
+                        style = MaterialTheme.typography.button
+                    )
+                }
+            } else {
+                Button(onClick = onNextClicked, modifier = Modifier.constrainAs(next) {
+                    bottom.linkTo(parent.bottom)
+                    end.linkTo(parent.end)
+                }) {
+                    Text("Next")
+                }
+            }
         }
     }
 }
@@ -113,26 +124,6 @@ fun Pager(
         viewPager
     }) {
         it.currentItem = currentPage
-    }
-}
-
-@Composable
-fun NextButton(
-    onClick: () -> Unit,
-    modifier: Modifier
-) {
-    Button(onClick = onClick, modifier = modifier) {
-        Text("Next")
-    }
-}
-
-@Composable
-fun GetStartedButton(
-    onClick: () -> Unit,
-    modifier: Modifier
-) {
-    Button(onClick = onClick, modifier = modifier) {
-        Text("Get started")
     }
 }
 

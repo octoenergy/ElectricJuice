@@ -6,6 +6,7 @@
     <string name="onboarding_page_two_description">Start charging in a flash, with a single tap in the app or with your Electric Juice card.</string>
     <string name="onboarding_page_three_title">Pay your way</string>
     <string name="onboarding_page_three_description">Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.</string>
+    <string name="onboarding_final_page_button">Get Started</string>
     <string name="common_word_skip">Skip</string>
 
 
