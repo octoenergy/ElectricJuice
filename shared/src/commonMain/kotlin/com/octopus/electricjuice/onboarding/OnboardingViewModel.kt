@@ -44,17 +44,17 @@ class OnboardingViewModel @MakeInjectable constructor(
                 OnboardingPage(
                     OnboardingImage.OnboardingPageOne,
                     resourceProvider.getString(OnboardingString.OnboardingPageOneTitle),
-                    resourceProvider.getString(OnboardingString.OnboardingPageOneDescription)
+                    resourceProvider.getString(OnboardingString.OnboardingPageOneSubtitle)
                 ),
                 OnboardingPage(
                     OnboardingImage.OnboardingPageTwo,
                     resourceProvider.getString(OnboardingString.OnboardingPageTwoTitle),
-                    resourceProvider.getString(OnboardingString.OnboardingPageTwoDescription)
+                    resourceProvider.getString(OnboardingString.OnboardingPageTwoSubtitle)
                 ),
                 OnboardingPage(
                     OnboardingImage.OnboardingPageThree,
                     resourceProvider.getString(OnboardingString.OnboardingPageThreeTitle),
-                    resourceProvider.getString(OnboardingString.OnboardingPageThreeDescription)
+                    resourceProvider.getString(OnboardingString.OnboardingPageThreeSubtitle)
                 )
             )
         )

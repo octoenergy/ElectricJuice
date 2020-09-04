@@ -4,9 +4,9 @@ import com.octopus.electricjuice.common.resources.JuicyString
 
 sealed class OnboardingString : JuicyString {
     object OnboardingPageOneTitle : OnboardingString()
-    object OnboardingPageOneDescription : OnboardingString()
+    object OnboardingPageOneSubtitle : OnboardingString()
     object OnboardingPageTwoTitle : OnboardingString()
-    object OnboardingPageTwoDescription : OnboardingString()
+    object OnboardingPageTwoSubtitle : OnboardingString()
     object OnboardingPageThreeTitle : OnboardingString()
-    object OnboardingPageThreeDescription : OnboardingString()
+    object OnboardingPageThreeSubtitle : OnboardingString()
 }
