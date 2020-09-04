@@ -12,7 +12,7 @@ val typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 20.sp,
-        letterSpacing = TextUnit.Sp(0.01)
+        letterSpacing = TextUnit.Sp(0.01),
     ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
@@ -25,7 +25,8 @@ val typography = Typography(
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
+        fontWeight = FontWeight.W600,
         fontSize = 14.sp,
+        letterSpacing = TextUnit.Sp(0.01),
     )
 )

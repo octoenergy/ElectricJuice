@@ -10,11 +10,14 @@ import androidx.compose.foundation.layout.ConstraintLayout
 import androidx.compose.foundation.layout.Stack
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.ui.tooling.preview.Preview
 import androidx.viewpager.widget.ViewPager
@@ -49,17 +52,23 @@ fun OnboardingScreen(
     onGetStartedClicked: () -> Unit,
 ) {
     Stack {
-        PageBackground(background = R.drawable.onboarding_background, modifier = Modifier.fillMaxSize())
+        PageBackground(
+            background = R.drawable.onboarding_background,
+            modifier = Modifier.fillMaxSize()
+        )
         Pager(state.onboardingPages, state.currentPageNumber, Modifier.fillMaxSize())
-        ConstraintLayout(
-            Modifier.fillMaxSize()
-                .systemBarsPadding()
-        ) {
+        ConstraintLayout(Modifier.fillMaxSize().systemBarsPadding()) {
             val (skip, dots, next, getStarted) = createRefs()
-            SkipButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
+            TextButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
                 top.linkTo(parent.top)
                 end.linkTo(parent.end)
-            })
+            }) {
+                Text(
+                    stringResource(id = R.string.common_word_skip),
+                    color = MaterialTheme.colors.onPrimary,
+                    style = MaterialTheme.typography.button
+                )
+            }
             PagerDots(modifier = Modifier.constrainAs(dots) {
                 bottom.linkTo(parent.bottom)
                 start.linkTo(parent.start)
@@ -104,16 +113,6 @@ fun Pager(
         viewPager
     }) {
         it.currentItem = currentPage
-    }
-}
-
-@Composable
-fun SkipButton(
-    onClick: () -> Unit,
-    modifier: Modifier
-) {
-    Button(onClick = onClick, modifier = modifier) {
-        Text("Skip")
     }
 }
 
