@@ -1,5 +1,9 @@
 package com.octopus.electricjuice.onboarding
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -30,12 +35,45 @@ import androidx.ui.tooling.preview.Preview
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.octopus.electricjuice.ElectricJuiceActivity
+import com.octopus.electricjuice.ElectricJuiceApp
 import com.octopus.electricjuice.R
 import com.octopus.electricjuice.common.navigationBarsPadding
 import com.octopus.electricjuice.common.statusBarsPadding
 import com.octopus.electricjuice.common.systemBarsPadding
+import com.octopus.electricjuice.common.ui.MotherFragment
+import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.theme.*
 import com.rd.PageIndicatorView
+import javax.inject.Inject
+
+class OnboardingFragment : MotherFragment() {
+
+    @Inject
+    lateinit var onboardingViewModel: OnboardingViewModel
+
+    companion object {
+        fun instance(): OnboardingFragment {
+            return OnboardingFragment()
+        }
+    }
+
+    override fun getLifecycleReceivers(): List<LifecycleReceiver> {
+        return emptyList()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                ElectricJuiceApp {
+                    OnboardingScreenContainer(onboardingViewModel = onboardingViewModel)
+                }
+            }
+        }
+    }
+}
 
 @Composable
 fun OnboardingScreenContainer(

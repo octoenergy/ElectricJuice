@@ -9,35 +9,18 @@ import com.octopus.electricjuice.extensions.startActivity
 import com.octopus.electricjuice.ElectricJuiceActivity
 import com.octopus.electricjuice.common.SingleActivity
 import com.octopus.electricjuice.githubrepositories.CurrentRepoRepository
-import com.octopus.electricjuice.githubrepositories.DetailsFragmentDirections
-import com.octopus.electricjuice.githubrepositories.MainFragmentDirections
 import javax.inject.Inject
 
 @SingleActivity
 class NavigatorImpl @Inject constructor(
-    private val electricJuiceActivity: ElectricJuiceActivity,
-    private val currentRepoRepository: CurrentRepoRepository
+    private val electricJuiceActivity: ElectricJuiceActivity
 ): Navigator {
+
     override fun goToMap() {
-        TODO("Not yet implemented")
+        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(R.id.mapFragment)
     }
 
     override fun goToOnboarding() {
-        TODO("Not yet implemented")
+        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(R.id.onboardingFragment)
     }
-
-//    override fun goToDetails(githubRepo: GithubRepo) {
-//        currentRepoRepository.githubRepo = githubRepo
-//        val action = MainFragmentDirections.actionMainFragmentToDetailsFragment()
-//        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
-//    }
-//
-//    override fun goToMain() {
-//        val action = DetailsFragmentDirections.actionDetailsFragmentToMainFragment()
-//        electricJuiceActivity.findNavController(R.id.nav_host_fragment).navigate(action)
-//    }
-//
-//    override fun goToUrl(url: String) {
-//        Intent(Intent.ACTION_VIEW, Uri.parse(url)).startActivity(electricJuiceActivity)
-//    }
 }

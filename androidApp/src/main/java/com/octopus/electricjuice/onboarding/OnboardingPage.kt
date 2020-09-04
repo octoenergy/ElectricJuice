@@ -55,7 +55,9 @@ class OnboardingPageFragment : MotherFragment() {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                OnboardingPage(onboardingPage = onboardingPage!!)
+                ElectricJuiceTheme {
+                    OnboardingPage(onboardingPage = onboardingPage!!)
+                }
             }
         }
     }
@@ -79,13 +81,13 @@ fun OnboardingPage(
         Text(
             text = onboardingPage.title,
             style = MaterialTheme.typography.subtitle1,
-            color = MaterialTheme.colors.onPrimary,
+            color = MaterialTheme.colors.onSecondary,
         )
         Spacer(modifier = Modifier.height(grid16))
         Text(
             text = onboardingPage.description,
             style = MaterialTheme.typography.body1,
-            color = MaterialTheme.colors.onPrimary,
+            color = MaterialTheme.colors.onSecondary,
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.weight(0.7f))

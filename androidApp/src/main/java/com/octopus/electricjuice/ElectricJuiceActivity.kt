@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.setContent
 import androidx.core.view.WindowCompat
 import androidx.ui.tooling.preview.Preview
 import com.octopus.electricjuice.common.ProvideDisplayInsets
+import com.octopus.electricjuice.common.platform.Navigator
 import com.octopus.electricjuice.common.ui.MotherAppCompatActivity
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
 import com.octopus.electricjuice.githubrepositories.MainViewModel
@@ -23,7 +24,7 @@ import javax.inject.Inject
 class ElectricJuiceActivity : MotherAppCompatActivity() {
 
     @Inject
-    lateinit var onboardingViewModel: OnboardingViewModel
+    lateinit var navigator: Navigator
 
     override fun getLifecycleReceivers(): List<LifecycleReceiver> {
         return emptyList()
@@ -34,16 +35,17 @@ class ElectricJuiceActivity : MotherAppCompatActivity() {
         // This app draws behind the system bars, so we want to handle fitting system windows
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        setContent {
-            MyApp {
-                OnboardingScreenContainer(onboardingViewModel = onboardingViewModel)
-            }
-        }
+        setContentView(R.layout.electric_juice_activity)
+        navigator.goToOnboarding()
     }
 }
 
+/**
+ * All compose SCREENS should start with this
+ * to ensure they receive the correct theming & insets
+ */
 @Composable
-fun MyApp(content: @Composable () -> Unit) {
+fun ElectricJuiceApp(content: @Composable () -> Unit) {
     ElectricJuiceTheme {
         Surface(color = MaterialTheme.colors.background) {
             ProvideDisplayInsets {
