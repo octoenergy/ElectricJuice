@@ -19,12 +19,4 @@ class OnboardingPagerAdapter(
         fragment.onboardingPage = onboardingPages[position]
         return fragment
     }
-
-//    override fun getCount(): Int {
-//        return 3
-//    }
-//
-//    override fun getItem(position: Int): Fragment {
-//        return OnboardingPageFragment.instance()
-//    }
 }

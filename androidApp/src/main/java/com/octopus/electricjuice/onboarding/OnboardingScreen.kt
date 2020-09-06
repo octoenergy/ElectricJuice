@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -116,10 +117,6 @@ fun OnboardingScreen(
                     )
                 }
             }
-            PagerDots(modifier = Modifier.constrainAs(dots) {
-                bottom.linkTo(parent.bottom)
-                start.linkTo(parent.start)
-            })
             if (state.isGetStartedButtonVisible) {
                 Button(
                     onClick = onGetStartedClicked,
@@ -205,26 +202,14 @@ fun Pager(
 ) {
     AndroidView(viewBlock = {
         val viewPager = ViewPager2(it)
-//        viewPager.id = R.id.viewPager
-        viewPager.adapter = OnboardingPagerAdapter(onboardingPages, it as AppCompatActivity)
-        viewPager.setPageTransformer(ZoomOutPageTransformer())
-        viewPager
-    }) {
-        it.currentItem = currentPage
-    }
-}
+        viewPager.adapter = OnboardingPagerAdapter(onboardingPages, (it as AppCompatActivity))
 
-@Composable
-fun PagerDots(modifier: Modifier) {
-    AndroidView(viewBlock = {
-        val pageIndicators = PageIndicatorView(it)
-        pageIndicators.radius = 6
-        pageIndicators.padding = 6
-        pageIndicators.selectedColor = it.getColor(R.color.colorAccent)
-        pageIndicators.unselectedColor = it.getColor(R.color.colorPrimary)
-        pageIndicators
+        val layout = FrameLayout(it)
+        layout.addView(viewPager)
+        layout
     }) {
-//        it.currentItem = currentPage
+        val viewPager: ViewPager2 = it.getChildAt(0) as ViewPager2
+        viewPager.currentItem = currentPage
     }
 }
 
