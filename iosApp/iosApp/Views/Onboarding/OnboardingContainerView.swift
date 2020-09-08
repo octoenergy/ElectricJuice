@@ -10,19 +10,13 @@ import SwiftUI
 import shared
 
 struct OnboardingContainerView: View {
-
-    @State var currentIndex: Int = 0 { didSet { buttonType = currentIndex == 2 ? .text : .arrow } }
+    @State var currentIndex: Int = 0
     @State private var buttonType: OnboardingButton.ButtonType = .arrow
-    @State private var isGetStartedButtonVisible: Bool = false
+    @State private var isGetStartedButtonVisible: Bool = false { didSet { buttonType = currentIndex == 2 ? .text : .arrow } }
     @State private var isSkipButtonVisible: Bool = true
     @State private var onboardingPages: [OnboardingPage] = [OnboardingPage(image: OnboardingImage.OnboardingPageOne(), title: "Welcome to Electric Juice", subtitle: "Find, charge and pay in one place, with our ever-expanding network of charge points across the UK."),
-                                                            OnboardingPage(image: OnboardingImage.OnboardingPageOne(), title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card."),
-                                                            OnboardingPage(image: OnboardingImage.OnboardingPageOne(), title: "Pay your way", subtitle: "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.")]
-    
-    //TODO:- Dummy Data
-    private var onboardingImages = ["onboarding_location",
-                                    "onboarding_charge",
-                                    "onboarding_payment"]
+                                                            OnboardingPage(image: OnboardingImage.OnboardingPageTwo(), title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card."),
+                                                            OnboardingPage(image: OnboardingImage.OnboardingPageThree(), title: "Pay your way", subtitle: "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.")]
     
 
     var viewModel: OnboardingViewModel!
@@ -30,23 +24,31 @@ struct OnboardingContainerView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                PageContainerView(pageCount: onboardingPages.count, currentIndex: $currentIndex) {
-                    ForEach(0..<onboardingPages.count) { index in
-                        OnboardingPageView(title: self.onboardingPages[index].title,
-                                           subtitle: self.onboardingPages[index].subtitle, //Change once description is fixed
-                            imageName: self.onboardingImages[index], //change once juicy image works
-                            pageIndex: index)
+                VStack {
+                    PageContainerView(pageCount: onboardingPages.count, currentIndex: $currentIndex) {
+                        ForEach(0..<onboardingPages.count) { index in
+                            OnboardingPageView(title: self.onboardingPages[index].title,
+                                               subtitle: self.onboardingPages[index].subtitle, //Change once description is fixed
+                                image: self.onboardingPages[index].image, //change once juicy image works
+                                pageIndex: index)
+                        }
                     }
+                    Spacer(minLength: OnboardingGradientView.whiteGradientSpacing) //To allow
                 }
                 VStack {
                     Spacer()
                     HStack {
                         PageControlView(index: $currentIndex, maxIndex: onboardingPages.count - 1)
+                            .padding(.leading, 32)
                         Spacer()
                         OnboardingButton(buttonType: $buttonType, action: {
-                            self.viewModel.onAction(action: OnboardingViewModel.UiActionNextClicked())
+                            if self.isGetStartedButtonVisible {
+                                 self.viewModel.onAction(action: OnboardingViewModel.UiActionGetStartedClicked())
+                            } else {
+                                self.viewModel.onAction(action: OnboardingViewModel.UiActionNextClicked())
+                            }
                         })
-                            .padding()
+                            .padding(.trailing, 32)
                     }
                 }
             }
@@ -77,7 +79,6 @@ struct OnboardingContainerView: View {
         }
     }
 }
-
 
 struct OnboardingContainerView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct OnboardingGradientView: View {
-
-    let requiredHeight: CGFloat = 155.0 //This is approximately where we want the white to start so ##pts from the bottom up 
+    static let whiteGradientSpacing: CGFloat = 155.0 //This is approximately where we want the white to start so ##pt from the bottom up
     private func calculateGradient() -> Gradient {
-        var ratio: CGFloat { (UIScreen.screenHeight - requiredHeight)/UIScreen.screenHeight }
+        var ratio: CGFloat { (UIScreen.screenHeight - OnboardingGradientView.whiteGradientSpacing)/UIScreen.screenHeight }
         return Gradient(stops: [.init(color: .electricPurple, location: ratio),
                                          .init(color: .white, location: 1)])
     }

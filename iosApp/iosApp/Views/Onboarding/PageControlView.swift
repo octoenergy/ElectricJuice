@@ -24,7 +24,6 @@ struct PageControlView: View {
                     .frame(width: 8, height: 8)
             }
         }
-        .padding(15)
     }
     
 }
