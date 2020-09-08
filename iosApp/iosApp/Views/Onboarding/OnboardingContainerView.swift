@@ -50,6 +50,8 @@ struct OnboardingContainerView: View {
                     }
                 }
             }
+            .background(
+             OnboardingGradientView())
         }
         .navigationBarItems(trailing:
             Button(action: {
@@ -58,6 +60,7 @@ struct OnboardingContainerView: View {
                 Text("Skip")
             })
         )
+            .background(Color.clear)
             .foregroundColor(.white)
             .onAppear {
 //                    self.setupViewStateObservers()

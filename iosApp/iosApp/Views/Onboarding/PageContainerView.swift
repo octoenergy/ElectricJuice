@@ -42,6 +42,7 @@ struct PageContainerView<Content: View>: View {
                 }
             )
         }
+        .background(Color.clear)
     }
 }
 extension NSString: JuicyImage {}
@@ -59,8 +60,10 @@ struct PageContainerView_Previews: PreviewProvider {
                                    subtitle: PageContainerView_Previews.onboardingPages[index].subtitle, //Change once description is fixed
                     imageName: PageContainerView_Previews.onboardingPages[index].image as! String,
                     pageIndex: index)
+                    
             }
         })
+        .background(OnboardingGradientView())
     }
 }
 

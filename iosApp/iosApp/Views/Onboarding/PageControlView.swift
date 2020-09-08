@@ -11,17 +11,22 @@ import SwiftUI
 struct PageControlView: View {
     @Binding var index: Int
     let maxIndex: Int
-
+    
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0...maxIndex, id: \.self) { index in
                 Circle()
-                    .fill(index == self.index ? Color.white : Color.gray)
+                    .stroke(Color.sunsetElectric, lineWidth: 1)
+                    .overlay(
+                        Circle()
+                            .fill(index == self.index ? Color.sunsetElectric : Color.clear)
+                )
                     .frame(width: 8, height: 8)
             }
         }
         .padding(15)
     }
+    
 }
 
 struct PageControl_Previews: PreviewProvider {

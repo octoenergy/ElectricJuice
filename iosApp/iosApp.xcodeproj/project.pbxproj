@@ -10,9 +10,12 @@
 		333463BE24FE76A00017A8D4 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */; };
 		333463C024FFA16E0017A8D4 /* Gotham-Book-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 333463BF24FFA16E0017A8D4 /* Gotham-Book-Regular.otf */; };
 		333463C224FFA1CF0017A8D4 /* Gotham-Medium-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333463C124FFA1CE0017A8D4 /* Gotham-Medium-Regular.ttf */; };
+		33405E3625062A56009692E0 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33405E3525062A56009692E0 /* Colours.xcassets */; };
+		33405E3825064BC1009692E0 /* JuicyColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33405E3725064BC1009692E0 /* JuicyColours.swift */; };
+		33405E3A25068275009692E0 /* OnboaringGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33405E3925068275009692E0 /* OnboaringGradientView.swift */; };
+		33405E3C250776ED009692E0 /* UIScreen+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33405E3B250776ED009692E0 /* UIScreen+Additions.swift */; };
 		334140B724ED3277003988E7 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = 334140B624ED3277003988E7 /* shared */; };
 		33621F6A25029A770094C435 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33621F6925029A770094C435 /* Resources.swift */; };
-		3370DA2D24EEBE0700FBDEBE /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 3370DA2C24EEBE0700FBDEBE /* Resolver */; };
 		3370DA3024EEBF7500FBDEBE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3370DA2F24EEBF7500FBDEBE /* Swinject */; };
 		33949BFB24F95B4800AA8289 /* NavigatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949BFA24F95B4800AA8289 /* NavigatorImpl.swift */; };
 		33949BFD24F95BA300AA8289 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33949BFC24F95BA300AA8289 /* ActivityIndicator.swift */; };
@@ -73,6 +76,10 @@
 		333463BD24FE76A00017A8D4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		333463BF24FFA16E0017A8D4 /* Gotham-Book-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book-Regular.otf"; sourceTree = "<group>"; };
 		333463C124FFA1CE0017A8D4 /* Gotham-Medium-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium-Regular.ttf"; sourceTree = "<group>"; };
+		33405E3525062A56009692E0 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		33405E3725064BC1009692E0 /* JuicyColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuicyColours.swift; sourceTree = "<group>"; };
+		33405E3925068275009692E0 /* OnboaringGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboaringGradientView.swift; sourceTree = "<group>"; };
+		33405E3B250776ED009692E0 /* UIScreen+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Additions.swift"; sourceTree = "<group>"; };
 		334140B624ED3277003988E7 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../shared; sourceTree = "<group>"; };
 		33621F6925029A770094C435 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		33949BFA24F95B4800AA8289 /* NavigatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
@@ -109,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3370DA2D24EEBE0700FBDEBE /* Resolver in Frameworks */,
 				B4C121DC249CDD1B00D8A21A /* shared.framework in Frameworks */,
 				3370DA3024EEBF7500FBDEBE /* Swinject in Frameworks */,
 			);
@@ -182,8 +188,10 @@
 		33949C0A24F95D4F00AA8289 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				33405E3B250776ED009692E0 /* UIScreen+Additions.swift */,
 				33949C0824F95D4A00AA8289 /* GithubRepo+Additions.swift */,
 				33B4E77124FFFB4F00F6F7B1 /* Binding+Additions.swift */,
+				33405E3725064BC1009692E0 /* JuicyColours.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				33B4E76F24FFFAE300F6F7B1 /* OnboardingPageView.swift */,
 				33B4E77525012F2F00F6F7B1 /* OnboardingButton.swift */,
 				33B4E778250152BF00F6F7B1 /* PageControlView.swift */,
+				33405E3925068275009692E0 /* OnboaringGradientView.swift */,
 				33621F6925029A770094C435 /* Resources.swift */,
 			);
 			path = Onboarding;
@@ -233,6 +242,7 @@
 				33949C0A24F95D4F00AA8289 /* Extensions */,
 				333463C324FFA1D70017A8D4 /* Fonts */,
 				7555FF84242A565B00829871 /* Assets.xcassets */,
+				33405E3525062A56009692E0 /* Colours.xcassets */,
 				7555FF89242A565B00829871 /* LaunchScreen.storyboard */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				7555FF86242A565B00829871 /* Preview Content */,
@@ -293,7 +303,6 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				3370DA2C24EEBE0700FBDEBE /* Resolver */,
 				3370DA2F24EEBF7500FBDEBE /* Swinject */,
 			);
 			productName = iosApp;
@@ -369,7 +378,6 @@
 			);
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
-				3370DA2B24EEBE0700FBDEBE /* XCRemoteSwiftPackageReference "Resolver" */,
 				3370DA2E24EEBF7500FBDEBE /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
@@ -392,6 +400,7 @@
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
 				333463C224FFA1CF0017A8D4 /* Gotham-Medium-Regular.ttf in Resources */,
 				334140B724ED3277003988E7 /* shared in Resources */,
+				33405E3625062A56009692E0 /* Colours.xcassets in Resources */,
 				7555FF88242A565B00829871 /* Preview Assets.xcassets in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
 			);
@@ -450,7 +459,10 @@
 				33621F6A25029A770094C435 /* Resources.swift in Sources */,
 				33B4E779250152BF00F6F7B1 /* PageControlView.swift in Sources */,
 				33B4E77625012F2F00F6F7B1 /* OnboardingButton.swift in Sources */,
+				33405E3825064BC1009692E0 /* JuicyColours.swift in Sources */,
+				33405E3A25068275009692E0 /* OnboaringGradientView.swift in Sources */,
 				33B4E77024FFFAE300F6F7B1 /* OnboardingPageView.swift in Sources */,
+				33405E3C250776ED009692E0 /* UIScreen+Additions.swift in Sources */,
 				33949C0224F95C5F00AA8289 /* AnnouncerImpl.swift in Sources */,
 				33B4E77B250259F200F6F7B1 /* PageContainerView.swift in Sources */,
 				333463BE24FE76A00017A8D4 /* OnboardingContainerView.swift in Sources */,
@@ -785,14 +797,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3370DA2B24EEBE0700FBDEBE /* XCRemoteSwiftPackageReference "Resolver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Resolver.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.4;
-			};
-		};
 		3370DA2E24EEBF7500FBDEBE /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -804,11 +808,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3370DA2C24EEBE0700FBDEBE /* Resolver */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3370DA2B24EEBE0700FBDEBE /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = Resolver;
-		};
 		3370DA2F24EEBF7500FBDEBE /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3370DA2E24EEBF7500FBDEBE /* XCRemoteSwiftPackageReference "Swinject" */;
