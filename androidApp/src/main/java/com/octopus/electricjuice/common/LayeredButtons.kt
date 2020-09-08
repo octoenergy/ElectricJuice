@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.tooling.preview.datasource.LoremIpsum
 import com.octopus.electricjuice.R
+import com.octopus.electricjuice.innerPadding
 import com.octopus.electricjuice.theme.*
 
 @Composable
@@ -32,12 +33,14 @@ fun LayeredButton(
     textColor: Color = MaterialTheme.colors.onPrimary,
     shape: CornerBasedShape = MaterialTheme.shapes.small,
 ) {
+    val contentPadding = innerPadding(horizontalPadding = grid16, verticalPadding = grid16)
     Stack(modifier = modifier.wrapContentSize()) {
         Button(
             onClick = {},
             backgroundColor = backgroundColor.copy(alpha = 0.1f),
             contentColor = backgroundColor.copy(alpha = 0.2f),
             elevation = 0.dp,
+            contentPadding = contentPadding,
             shape = shape,
             modifier = Modifier.padding(end = grid24).gravity(Alignment.CenterEnd)) {
             Text(
@@ -50,6 +53,7 @@ fun LayeredButton(
             backgroundColor = backgroundColor.copy(alpha = 0.2f),
             contentColor = backgroundColor.copy(alpha = 0.2f),
             elevation = 0.dp,
+            contentPadding = contentPadding,
             shape = shape,
             modifier = Modifier.padding(end = grid16).gravity(Alignment.CenterEnd)) {
             Text(
@@ -62,6 +66,7 @@ fun LayeredButton(
             backgroundColor = backgroundColor.copy(alpha = 0.5f),
             contentColor = backgroundColor.copy(alpha = 0.2f),
             elevation = 0.dp,
+            contentPadding = contentPadding,
             shape = shape,
             modifier = Modifier.padding(end = grid8).gravity(Alignment.CenterEnd)) {
             Text(
@@ -73,6 +78,7 @@ fun LayeredButton(
             onClick = onClick,
             shape = shape,
             elevation = 0.dp,
+            contentPadding = contentPadding,
             modifier = Modifier.gravity(Alignment.CenterEnd)) {
             Text(
                 string,

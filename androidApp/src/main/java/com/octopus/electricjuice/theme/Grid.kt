@@ -19,11 +19,11 @@ val grid80 = 80.dp
 val grid96 = 96.dp
 
 
-val cornerRadius = 16.dp
-val margin = 16.dp
+val cornerRadius = grid24
+val margin = grid16
 
 /**
  * This is defined in compose but is private
  * [FabSize] so we need to define it here
  */
-val fabSize = 56.dp
+val fabSize = grid56
