@@ -21,10 +21,7 @@ import com.octopus.electricjuice.common.PREVIEW_SHORT_TEXT
 import com.octopus.electricjuice.common.map
 import com.octopus.electricjuice.common.ui.MotherFragment
 import com.octopus.electricjuice.common.viewmodels.LifecycleReceiver
-import com.octopus.electricjuice.theme.ElectricJuiceTheme
-import com.octopus.electricjuice.theme.grid16
-import com.octopus.electricjuice.theme.grid32
-import com.octopus.electricjuice.theme.grid48
+import com.octopus.electricjuice.theme.*
 
 class OnboardingPageFragment : MotherFragment() {
 
@@ -67,6 +64,7 @@ class OnboardingPageFragment : MotherFragment() {
 fun OnboardingPage(
     onboardingPage: OnboardingPage
 ) {
+    val textMargin = grid24
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalGravity = Alignment.CenterHorizontally,
@@ -82,13 +80,16 @@ fun OnboardingPage(
             text = onboardingPage.title,
             style = MaterialTheme.typography.subtitle1,
             color = MaterialTheme.colors.onSecondary,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = textMargin),
         )
         Spacer(modifier = Modifier.height(grid16))
         Text(
             text = onboardingPage.description,
             style = MaterialTheme.typography.body1,
             color = MaterialTheme.colors.onSecondary,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = textMargin),
         )
         Spacer(modifier = Modifier.weight(0.7f))
     }

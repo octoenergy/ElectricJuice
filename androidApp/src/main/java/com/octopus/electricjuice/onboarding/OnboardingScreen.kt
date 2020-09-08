@@ -102,9 +102,11 @@ fun OnboardingScreen(
         )
         Pager(state.onboardingPages, state.currentPageNumber, Modifier.fillMaxSize())
         ConstraintLayout(Modifier.fillMaxSize().systemBarsPadding()) {
-            val (skip, dots, next, getStarted) = createRefs()
+            val (skip, next, getStarted) = createRefs()
             if (state.isSkipButtonVisible) {
-                TextButton(onClick = onSkipClicked, modifier = Modifier.constrainAs(skip) {
+                TextButton(
+                    onClick = onSkipClicked,
+                    modifier = Modifier.padding(margin).constrainAs(skip) {
                     top.linkTo(parent.top)
                     end.linkTo(parent.end)
                 }) {
@@ -119,14 +121,14 @@ fun OnboardingScreen(
                 LayeredButton(
                     string = stringResource(id = R.string.onboarding_final_page_button),
                     onClick = onGetStartedClicked,
-                    modifier = Modifier.constrainAs(getStarted) {
+                    modifier = Modifier.padding(margin).constrainAs(getStarted) {
                         bottom.linkTo(parent.bottom)
                         end.linkTo(parent.end)
                     },
                 )
             } else {
                 LayeredFab(
-                    modifier = Modifier.constrainAs(next) {
+                    modifier = Modifier.padding(margin).constrainAs(next) {
                         bottom.linkTo(parent.bottom)
                         end.linkTo(parent.end)
                     },
