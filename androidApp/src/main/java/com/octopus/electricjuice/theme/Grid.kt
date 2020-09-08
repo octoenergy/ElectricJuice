@@ -14,6 +14,15 @@ val grid32 = 32.dp
 val grid40 = 40.dp
 val grid48 = 48.dp
 val grid56 = 56.dp
+val grid64 = 64.dp
+val grid80 = 80.dp
+val grid96 = 96.dp
 
 
 val cornerRadius = 16.dp
+
+/**
+ * This is defined in compose but is private
+ * [FabSize]
+ */
+val fabSize = 56.dp
