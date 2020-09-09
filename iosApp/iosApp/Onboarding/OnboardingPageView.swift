@@ -19,42 +19,39 @@ struct OnboardingPageView: View {
     let pageIndex: Int
     
     var body: some View {
-        
-        VStack(alignment: .center) {
-//            Spacer()
+        VStack {
             HStack(spacing: 0) {
                 if pageIndex == 0 { Spacer() }
                 if pageIndex == 1 {
                     Image(image.map())
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-//                        .offset(CGSize(width: 0, height: -25))
                 } else { Image(image.map()) }
                 if pageIndex == 2 { Spacer() }
             }
-            .padding()
+            .padding(.bottom, 96)
             VStack {
-                Text(title)
-                    .font(.custom("GothamMedium", size: 20))
-                    .padding()
-                    .foregroundColor(.white)
-                Text(subtitle)
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Gotham", size: 14))
+                JuicyTitleText(text: title)
+                    .padding(.bottom, 16)
+                JuicySubtitleText(text: subtitle)
                     .padding(.horizontal, 32)
                     .padding(.vertical, 8)
-                    .foregroundColor(.white)
+                    .frame(width: UIScreen.screenWidth, height: 64, alignment: .top)
+                Spacer()
+                    .frame(width: UIScreen.screenWidth, height: 180, alignment: .top)
             }
         }
+        .frame(width: UIScreen.screenWidth,
+               height: UIScreen.screenHeight,
+               alignment: .bottom)
     }
 }
 
 struct OnboardingPageView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingPageView(title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card.", image: OnboardingImage.OnboardingPageTwo(), pageIndex: 1)
-            .background(Color.electricPurple
-        .edgesIgnoringSafeArea(.all))
-            
+            .background(OnboardingGradientView())
+        
         
         
     }

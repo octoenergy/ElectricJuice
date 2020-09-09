@@ -42,7 +42,7 @@ struct PageContainerView<Content: View>: View {
                 }
             )
         }
-        .background(Color.clear)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

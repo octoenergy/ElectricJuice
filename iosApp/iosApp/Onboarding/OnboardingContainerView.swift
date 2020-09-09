@@ -18,22 +18,19 @@ struct OnboardingContainerView: View {
                                                             OnboardingPage(image: OnboardingImage.OnboardingPageTwo(), title: "Charge with one tap", subtitle: "Start charging in a flash, with a single tap in the app or with your Electric Juice card."),
                                                             OnboardingPage(image: OnboardingImage.OnboardingPageThree(), title: "Pay your way", subtitle: "Pay with any card, or link your Octopus Energy account to have charges magically appear on your energy bill.")]
     
-
+    
     var viewModel: OnboardingViewModel!
     
     var body: some View {
         NavigationView {
             ZStack {
-                VStack {
-                    PageContainerView(pageCount: onboardingPages.count, currentIndex: $currentIndex) {
-                        ForEach(0..<onboardingPages.count) { index in
-                            OnboardingPageView(title: self.onboardingPages[index].title,
-                                               subtitle: self.onboardingPages[index].subtitle, //Change once description is fixed
-                                image: self.onboardingPages[index].image, //change once juicy image works
-                                pageIndex: index)
-                        }
+                PageContainerView(pageCount: onboardingPages.count, currentIndex: $currentIndex) {
+                    ForEach(0..<onboardingPages.count) { index in
+                        OnboardingPageView(title: self.onboardingPages[index].title,
+                                           subtitle: self.onboardingPages[index].subtitle, //Change once description is fixed
+                            image: self.onboardingPages[index].image, //change once juicy image works
+                            pageIndex: index)
                     }
-                    Spacer(minLength: OnboardingGradientView.whiteGradientSpacing) //To allow
                 }
                 VStack {
                     Spacer()
@@ -43,17 +40,21 @@ struct OnboardingContainerView: View {
                         Spacer()
                         OnboardingButton(buttonType: $buttonType, action: {
                             if self.isGetStartedButtonVisible {
-                                 self.viewModel.onAction(action: OnboardingViewModel.UiActionGetStartedClicked())
+                                self.viewModel.onAction(action: OnboardingViewModel.UiActionGetStartedClicked())
                             } else {
                                 self.viewModel.onAction(action: OnboardingViewModel.UiActionNextClicked())
                             }
                         })
                             .padding(.trailing, 32)
+                            .padding(.bottom, 34)
                     }
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .edgesIgnoringSafeArea(.bottom)
+                    
                 }
             }
             .background(
-             OnboardingGradientView())
+                OnboardingGradientView())
         }
         .navigationBarItems(trailing:
             Button(action: {
@@ -65,7 +66,7 @@ struct OnboardingContainerView: View {
             .background(Color.clear)
             .foregroundColor(.white)
             .onAppear {
-//                    self.setupViewStateObservers()
+                //                    self.setupViewStateObservers() //Uncomment when testing KMP response
         }
     }
     
